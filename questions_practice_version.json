@@ -14,7 +14,7 @@
           "type": "mcq",
           "points": 2,
           "difficulty": "easy",
-          "question": "In Python, which character marks the start of a comment line?",
+          "question": "Which symbol starts a comment in Python?",
           "options": [
             "//",
             "/*",
@@ -22,14 +22,14 @@
             "--"
           ],
           "correct": 2,
-          "explanation": "Python uses # for single-line comments."
+          "explanation": "Python uses # to start a single-line comment."
         },
         {
           "id": 2,
           "type": "mcq",
           "points": 2,
           "difficulty": "easy",
-          "question": "When you call df.head() in pandas, what does it return?",
+          "question": "What does df.head() show?",
           "options": [
             "The last 5 rows",
             "The first 5 rows",
@@ -37,14 +37,14 @@
             "Total number of rows"
           ],
           "correct": 1,
-          "explanation": "By default, df.head() shows the top 5 rows."
+          "explanation": "df.head() returns the first 5 rows by default."
         },
         {
           "id": 3,
           "type": "mcq",
           "points": 2,
           "difficulty": "easy",
-          "question": "What information does df.shape give you?",
+          "question": "What does df.shape return?",
           "options": [
             "Only number of columns",
             "A tuple (rows, columns)",
@@ -52,14 +52,14 @@
             "The data types"
           ],
           "correct": 1,
-          "explanation": "df.shape returns a tuple in the form (rows, columns)."
+          "explanation": "df.shape returns a (rows, columns) tuple."
         },
         {
           "id": 4,
           "type": "mcq",
           "points": 2,
           "difficulty": "easy",
-          "question": "Which Python library is the standard choice for working with tabular data?",
+          "question": "Which library is used to work with data tables in Python?",
           "options": [
             "numpy",
             "sklearn",
@@ -67,14 +67,14 @@
             "pandas"
           ],
           "correct": 3,
-          "explanation": "pandas handles DataFrames; numpy handles arrays."
+          "explanation": "pandas is the data-table library; numpy is for arrays."
         },
         {
           "id": 5,
           "type": "mcq",
           "points": 2,
           "difficulty": "easy",
-          "question": "If you run np.mean([2, 4, 6]), what value comes back?",
+          "question": "What does np.mean([2, 4, 6]) return?",
           "options": [
             "2",
             "6",
@@ -89,7 +89,7 @@
           "type": "mcq",
           "points": 2,
           "difficulty": "easy",
-          "question": "Which pandas function loads a CSV file into a DataFrame?",
+          "question": "Which function reads a CSV file in pandas?",
           "options": [
             "pd.read_csv()",
             "pd.open_csv()",
@@ -97,14 +97,14 @@
             "csv.read()"
           ],
           "correct": 0,
-          "explanation": "pd.read_csv() is the standard reader."
+          "explanation": "pd.read_csv() is the standard CSV reader."
         },
         {
           "id": 7,
           "type": "mcq",
           "points": 2,
           "difficulty": "medium",
-          "question": "About sklearn's built-in datasets like load_iris — which statement is correct?",
+          "question": "When you use sklearn's built-in datasets (like load_iris), which is true?",
           "options": [
             "No download is needed",
             "You need a Kaggle account",
@@ -112,14 +112,14 @@
             "You need to upload a file"
           ],
           "correct": 0,
-          "explanation": "Built-in datasets ship with sklearn — no download required."
+          "explanation": "sklearn's built-in datasets ship with the library."
         },
         {
           "id": 8,
           "type": "mcq",
           "points": 2,
           "difficulty": "easy",
-          "question": "What is the main reason for splitting data into training and testing sets?",
+          "question": "Why do we split data into train and test?",
           "options": [
             "To save memory",
             "To check the model honestly on data it has never seen",
@@ -127,14 +127,14 @@
             "To use less data"
           ],
           "correct": 1,
-          "explanation": "The test set acts as an honest exam — data the model never saw during training."
+          "explanation": "The test set is the honest exam — data the model never saw during training."
         },
         {
           "id": 9,
           "type": "mcq",
           "points": 2,
           "difficulty": "easy",
-          "question": "If you call train_test_split with test_size=0.25, how much of the data goes to training?",
+          "question": "In train_test_split(X, y, test_size=0.25), what is the train size?",
           "options": [
             "25%",
             "75%",
@@ -142,14 +142,14 @@
             "100%"
           ],
           "correct": 1,
-          "explanation": "test_size=0.25 leaves 75% for training."
+          "explanation": "test_size=0.25 means 25% test, so 75% train."
         },
         {
           "id": 10,
           "type": "mcq",
           "points": 2,
           "difficulty": "medium",
-          "question": "What is the purpose of setting random_state=42?",
+          "question": "What does random_state=42 do?",
           "options": [
             "Makes the model run faster",
             "Makes the split the SAME every time you run the code",
@@ -157,14 +157,14 @@
             "Reduces overfitting automatically"
           ],
           "correct": 1,
-          "explanation": "random_state fixes the random seed so results are reproducible."
+          "explanation": "random_state fixes the random seed for reproducibility."
         },
         {
           "id": 11,
           "type": "mcq",
           "points": 2,
           "difficulty": "hard",
-          "question": "What happens if you evaluate a model using the data it was already trained on?",
+          "question": "If you test a model on the SAME data it was trained on, what happens?",
           "options": [
             "The score will be too LOW",
             "The score will be too HIGH (the model already saw the answers)",
@@ -172,14 +172,14 @@
             "The model will not train at all"
           ],
           "correct": 1,
-          "explanation": "The score becomes overoptimistic because the model already saw the answers — this is exactly why we hold out a test set."
+          "explanation": "Testing on training data is cheating — the model has seen the answers, so the score is overoptimistic. This is the core reason we hold out a test set."
         },
         {
           "id": 12,
           "type": "mcq",
           "points": 2,
           "difficulty": "medium",
-          "question": "Among these models, which one works fine without feature scaling?",
+          "question": "Which model does NOT need feature scaling?",
           "options": [
             "KNN",
             "Logistic Regression",
@@ -187,14 +187,14 @@
             "Random Forest"
           ],
           "correct": 3,
-          "explanation": "Tree-based methods split on thresholds, so the scale of features does not matter."
+          "explanation": "Tree-based models split on thresholds, so the scale of features does not matter."
         },
         {
           "id": 13,
           "type": "mcq",
           "points": 2,
           "difficulty": "medium",
-          "question": "What is the reason a Decision Tree does not require feature scaling?",
+          "question": "Why does a Decision Tree NOT need scaling?",
           "options": [
             "Trees use linear math",
             "Trees compute distances between rows",
@@ -202,14 +202,14 @@
             "Trees only use Yes/No questions — the scale does not matter"
           ],
           "correct": 3,
-          "explanation": "A split like x > 5 works the same way at any scale."
+          "explanation": "Tree splits like x > 5 work the same way at any scale."
         },
         {
           "id": 14,
           "type": "mcq",
           "points": 2,
           "difficulty": "easy",
-          "question": "Linear Regression is used to predict:",
+          "question": "Linear Regression predicts:",
           "options": [
             "Yes / No",
             "A category",
@@ -217,14 +217,14 @@
             "A picture"
           ],
           "correct": 2,
-          "explanation": "Linear Regression predicts a continuous number."
+          "explanation": "Linear Regression is for predicting continuous numbers."
         },
         {
           "id": 15,
           "type": "mcq",
           "points": 2,
           "difficulty": "easy",
-          "question": "What type of output does Logistic Regression produce?",
+          "question": "Logistic Regression predicts:",
           "options": [
             "A number",
             "An average value",
@@ -232,14 +232,14 @@
             "The minimum"
           ],
           "correct": 2,
-          "explanation": "Despite the name, Logistic Regression performs classification."
+          "explanation": "Despite the name, Logistic Regression is for classification."
         },
         {
           "id": 16,
           "type": "mcq",
           "points": 2,
           "difficulty": "medium",
-          "question": "How does a Decision Tree arrive at its prediction?",
+          "question": "A Decision Tree makes predictions by:",
           "options": [
             "Computing one complex formula",
             "Averaging all training values",
@@ -247,14 +247,14 @@
             "Asking a series of Yes/No questions"
           ],
           "correct": 3,
-          "explanation": "It walks down a chain of yes/no questions to reach a leaf."
+          "explanation": "A tree walks down a chain of yes/no questions to reach a leaf."
         },
         {
           "id": 17,
           "type": "mcq",
           "points": 2,
           "difficulty": "medium",
-          "question": "How would you best describe a Random Forest?",
+          "question": "Random Forest is:",
           "options": [
             "Many decision trees voting together",
             "One very deep decision tree",
@@ -262,14 +262,14 @@
             "A clustering algorithm"
           ],
           "correct": 0,
-          "explanation": "A forest is many trees combined by voting (classification) or averaging (regression)."
+          "explanation": "A 'forest' = many trees combined by voting/averaging."
         },
         {
           "id": 18,
           "type": "mcq",
           "points": 2,
           "difficulty": "hard",
-          "question": "When a Decision Tree decides which feature to split on, it picks the one that:",
+          "question": "A Decision Tree picks the BEST split by choosing the question that:",
           "options": [
             "Uses the column with the highest average",
             "Makes the two groups the CLEANEST (lowest Gini)",
@@ -284,7 +284,7 @@
           "type": "mcq",
           "points": 2,
           "difficulty": "hard",
-          "question": "What makes Random Forest more reliable than a single Decision Tree?",
+          "question": "Why is Random Forest more stable than a single Decision Tree?",
           "options": [
             "Forests train faster",
             "Forests do not need training data",
@@ -292,14 +292,14 @@
             "Forests use linear math"
           ],
           "correct": 2,
-          "explanation": "Bagging — errors of individual trees average out when many trees vote."
+          "explanation": "Bagging: errors of individual trees average out when many trees vote."
         },
         {
           "id": 20,
           "type": "mcq",
           "points": 2,
           "difficulty": "easy",
-          "question": "The metric MAE is short for:",
+          "question": "MAE stands for:",
           "options": [
             "Mean Absolute Error",
             "Mean Average Error",
@@ -314,7 +314,7 @@
           "type": "mcq",
           "points": 2,
           "difficulty": "easy",
-          "question": "A smaller MAE value indicates that:",
+          "question": "Lower MAE means:",
           "options": [
             "Worse model",
             "Faster model",
@@ -322,14 +322,14 @@
             "Bigger model"
           ],
           "correct": 2,
-          "explanation": "Lower error means smaller mistakes, so better predictions."
+          "explanation": "Lower error = better predictions."
         },
         {
           "id": 22,
           "type": "mcq",
           "points": 2,
           "difficulty": "hard",
-          "question": "If a model gives MAE = 5 and RMSE = 15, what does this gap between the two metrics suggest?",
+          "question": "If MAE = 5 and RMSE = 15 for the same model, what does this tell you?",
           "options": [
             "The model is perfect",
             "The data needs scaling",
@@ -337,14 +337,14 @@
             "Most mistakes are small, but at least one is HUGE"
           ],
           "correct": 3,
-          "explanation": "When RMSE is much larger than MAE, the model has at least one big mistake that pulls RMSE up."
+          "explanation": "A large gap RMSE >> MAE means uneven errors — one or more big mistakes are pulling RMSE up."
         },
         {
           "id": 23,
           "type": "mcq",
           "points": 2,
           "difficulty": "hard",
-          "question": "An R-squared (R²) score of 0 indicates that the model:",
+          "question": "R² = 0 means:",
           "options": [
             "The model is no better than just guessing the average",
             "The model has zero errors",
@@ -352,14 +352,14 @@
             "The model uses zero features"
           ],
           "correct": 0,
-          "explanation": "R² = 0 means the model performs the same as the lazy 'always-the-average' baseline."
+          "explanation": "R² = 0 means your model performs the same as the lazy 'always-the-average' model."
         },
         {
           "id": 24,
           "type": "mcq",
           "points": 2,
           "difficulty": "easy",
-          "question": "Accuracy can be defined as:",
+          "question": "Accuracy is:",
           "options": [
             "The size of the dataset",
             "The percent of WRONG predictions",
@@ -367,14 +367,14 @@
             "The percent of RIGHT predictions"
           ],
           "correct": 3,
-          "explanation": "Accuracy = number of correct predictions / total predictions."
+          "explanation": "Accuracy = correct / total."
         },
         {
           "id": 25,
           "type": "mcq",
           "points": 2,
           "difficulty": "medium",
-          "question": "In which situation does accuracy give a misleading score?",
+          "question": "When does accuracy LIE?",
           "options": [
             "When the data is IMBALANCED (one class is rare)",
             "When the data is balanced (50/50)",
@@ -382,14 +382,14 @@
             "When the model is too small"
           ],
           "correct": 0,
-          "explanation": "On imbalanced data, predicting only the majority class looks great by accuracy but is useless."
+          "explanation": "On imbalanced data, a model that always predicts the majority class looks great by accuracy but is useless."
         },
         {
           "id": 26,
           "type": "mcq",
           "points": 2,
           "difficulty": "medium",
-          "question": "Precision is the metric that answers which question?",
+          "question": "Precision answers:",
           "options": [
             "How many real YES cases did we catch?",
             "When the model says YES, how often is it right?",
@@ -397,14 +397,14 @@
             "How big is the data?"
           ],
           "correct": 1,
-          "explanation": "Precision = TP / (TP + FP). It measures how trustworthy the YES predictions are."
+          "explanation": "Precision = TP / (TP + FP)."
         },
         {
           "id": 27,
           "type": "mcq",
           "points": 2,
           "difficulty": "medium",
-          "question": "Recall is the metric that answers which question?",
+          "question": "Recall answers:",
           "options": [
             "When the model says YES, how often is it right?",
             "Number of features",
@@ -412,14 +412,14 @@
             "Of all real YES cases, how many did we catch?"
           ],
           "correct": 3,
-          "explanation": "Recall = TP / (TP + FN). It measures how many real YES cases were caught."
+          "explanation": "Recall = TP / (TP + FN)."
         },
         {
           "id": 28,
           "type": "mcq",
           "points": 2,
           "difficulty": "hard",
-          "question": "In a cancer detection system, which evaluation metric is most critical?",
+          "question": "For cancer detection, which metric matters MOST?",
           "options": [
             "Recall",
             "Precision",
@@ -427,14 +427,14 @@
             "Training time"
           ],
           "correct": 0,
-          "explanation": "Missing a real cancer case (false negative) is the costliest mistake — recall must be maximised."
+          "explanation": "Missing a real cancer case (false negative) is the most costly mistake — so we maximise recall."
         },
         {
           "id": 29,
           "type": "mcq",
           "points": 2,
           "difficulty": "hard",
-          "question": "What condition must hold for the F1 score to be high?",
+          "question": "F1 score is high only when:",
           "options": [
             "BOTH precision AND recall are high",
             "Either precision OR recall is high",
@@ -442,14 +442,14 @@
             "The model is fast"
           ],
           "correct": 0,
-          "explanation": "F1 is the harmonic mean — it drops to the smaller of precision and recall."
+          "explanation": "F1 is the harmonic mean — it pulls down to the smaller of precision and recall."
         },
         {
           "id": 30,
           "type": "mcq",
           "points": 2,
           "difficulty": "hard",
-          "question": "Examine the confusion matrix below (rows = real label, columns = predicted; class 1 = PASS):\n[[40, 10],\n [ 5, 45]]\nWhat is the model's accuracy?",
+          "question": "Look at this confusion matrix (row = real, col = predicted; class 1 = PASS):\n[[40, 10],\n [ 5, 45]]\nWhat is the accuracy?",
           "options": [
             "0.40",
             "0.90",
@@ -457,7 +457,7 @@
             "0.95"
           ],
           "correct": 2,
-          "explanation": "Correct predictions = 40 + 45 = 85. Total = 100. Accuracy = 0.85."
+          "explanation": "Correct = 40 + 45 = 85. Total = 100. Accuracy = 0.85."
         }
       ]
     },
@@ -471,7 +471,7 @@
           "type": "fill",
           "points": 4,
           "difficulty": "easy",
-          "question": "Write the name of the sklearn function that divides data into training and testing parts:",
+          "question": "The function in sklearn that splits the data into train and test parts is called:",
           "blanks": [
             {
               "accepts": [
@@ -489,7 +489,7 @@
           "type": "fill",
           "points": 4,
           "difficulty": "easy",
-          "question": "In the call model.fit(X, y), the variable X represents the [BLANK 1] and y represents the [BLANK 2].",
+          "question": "In model.fit(X, y), the variable X is the [BLANK 1] and y is the [BLANK 2].",
           "blanks": [
             {
               "accepts": [
@@ -516,14 +516,14 @@
               "placeholder": "y is..."
             }
           ],
-          "explanation": "X = features / clues, y = target / label."
+          "explanation": "X = features/clues, y = target/label."
         },
         {
           "id": 33,
           "type": "fill",
           "points": 4,
           "difficulty": "medium",
-          "question": "Fill in the missing parts to import LogisticRegression from sklearn:\nfrom [BLANK 1] import [BLANK 2]",
+          "question": "Complete the import line:\nfrom [BLANK 1] import [BLANK 2]\n(to bring LogisticRegression from sklearn)",
           "blanks": [
             {
               "accepts": [
@@ -548,7 +548,7 @@
           "type": "fill",
           "points": 4,
           "difficulty": "medium",
-          "question": "What do we call a model that learns nothing and always predicts the same value (e.g. always 'not spam')? It starts with L or B.",
+          "question": "A model that does NOT learn anything and always predicts the same value (like always 'not spam') is called the ___ model. (Starts with L or B.)",
           "blanks": [
             {
               "accepts": [
@@ -560,14 +560,14 @@
               "placeholder": "one word"
             }
           ],
-          "explanation": "This is the lazy / baseline / dummy model — the floor that any real model must beat."
+          "explanation": "We call it the lazy / baseline / dummy model — the floor that real models must beat."
         },
         {
           "id": 35,
           "type": "fill",
           "points": 4,
           "difficulty": "medium",
-          "question": "When 95 emails are normal and only 5 are spam, the data is said to be ___ (one word).",
+          "question": "If 95 emails are normal and only 5 are spam, the data is ___ (one word).",
           "blanks": [
             {
               "accepts": [
@@ -585,7 +585,7 @@
           "type": "fill",
           "points": 4,
           "difficulty": "medium",
-          "question": "Complete the sentence: 'Compared to MAE, the RMSE metric ___ big mistakes (counts them extra).'",
+          "question": "Fill in the missing word: 'RMSE is similar to MAE, but it ___ big mistakes (counts them extra).'",
           "blanks": [
             {
               "accepts": [
@@ -599,7 +599,7 @@
               "placeholder": "verb"
             }
           ],
-          "explanation": "RMSE penalises / punishes big mistakes because of the squaring step."
+          "explanation": "RMSE punishes/penalizes big mistakes because of the squaring step."
         },
         {
           "id": 37,
@@ -630,7 +630,7 @@
           "type": "fill",
           "points": 4,
           "difficulty": "hard",
-          "question": "If a model has an R² of 0.80, what percentage of the answer does it explain? ___ %",
+          "question": "A model with R² = 0.80 explains ___ % of the answer.",
           "blanks": [
             {
               "accepts": [
@@ -659,14 +659,14 @@
               "case_sensitive": true
             }
           ],
-          "explanation": "Use the imported function: accuracy_score(y_true, y_pred)."
+          "explanation": "Call the imported function: accuracy_score(y_true, y_pred)."
         },
         {
           "id": 40,
           "type": "fill",
           "points": 4,
           "difficulty": "hard",
-          "question": "A bank focuses on detecting fraud. Since missing a real fraud transaction is very costly, the bank should prioritise which metric? ___",
+          "question": "A bank wants to catch fraud. Missing a real fraud is very dangerous. The bank should care most about the metric called ___.",
           "blanks": [
             {
               "accepts": [
