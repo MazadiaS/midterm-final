@@ -6,7 +6,7 @@
 
 const STORAGE_KEY = "midterm_state_v3";
 const TIMER_KEY = "midterm_timer_end_v3";
-const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwPbJZkcRfVXwJ3cbSSd3CbefvxWF1qMoZQJlnPkMQ_twEkegnUpXq5ojNYuPXw8U8/exec";
+const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzq6x7m0xr1WlpYWsr5EDzAgkhmuctPED1gTwwbDtrzSKK_Kq0djYdwGKvawJDB_IR-/exec";
 
 const state = {
   data: null,
