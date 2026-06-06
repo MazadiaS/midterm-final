@@ -80,37 +80,10 @@ async function boot() {
   el.welcomeTitle.textContent = state.data.title;
   el.welcomeSubtitle.textContent = state.data.subtitle || "";
 
-  // Wire up the access-code gate
-  setupGate();
-
-  // If not already unlocked, stop here — the gate decides what happens next.
-  if (sessionStorage.getItem(ACCESS_KEY) !== "ok") {
-    switchScreen("gate");
-    return;
-  }
-
-  // Already unlocked this session — fall through to the normal welcome / resume flow.
-
-  // Restore in-progress exam?
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved) {
-    try {
-      const parsed = JSON.parse(saved);
-      if (parsed.student && !parsed.finished) {
-        Object.assign(state, parsed);
-        startExam(true); // resume
-        return;
-      }
-    } catch (e) {
-      localStorage.removeItem(STORAGE_KEY);
-    }
-  }
-
-  // Listeners
+  // ===== Attach ALL listeners FIRST. They do not depend on which screen is shown. =====
   el.studentName.addEventListener("input", validateStart);
   el.studentGroup.addEventListener("input", validateStart);
   el.startBtn.addEventListener("click", () => {
-    // Defensive: ensure a completely fresh state for a brand-new attempt
     state.answers = {};
     state.current = 0;
     state.tabSwitches = 0;
@@ -132,6 +105,30 @@ async function boot() {
 
   el.retakeBtn.addEventListener("click", retake);
   el.printBtn.addEventListener("click", () => window.print());
+
+  setupGate();
+
+  // ===== Now decide which screen to show. =====
+  if (sessionStorage.getItem(ACCESS_KEY) !== "ok") {
+    switchScreen("gate");
+    return;
+  }
+
+  // Already unlocked this session — restore in-progress exam if any, otherwise show welcome.
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      if (parsed.student && !parsed.finished) {
+        Object.assign(state, parsed);
+        startExam(true);
+        return;
+      }
+    } catch (e) {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+  }
+  switchScreen("welcome");
 }
 
 function validateStart() {
