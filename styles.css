@@ -45,14 +45,43 @@ h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
 .screen { display: none; min-height: 100vh; }
 .screen.active { display: block; }
 
-/* ===== Welcome ===== */
-#welcome {
+/* ===== Welcome / Gate ===== */
+#welcome, #gate {
   display: none;
   align-items: center;
   justify-content: center;
   padding: 2rem 1rem;
 }
-#welcome.active { display: flex; }
+#welcome.active, #gate.active { display: flex; }
+
+.gate-card {
+  max-width: 480px;
+  text-align: center;
+}
+.gate-card h1 { margin-bottom: 0.5rem; }
+.gate-card .field input {
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+}
+.gate-card #gate-btn {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+.gate-error {
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  background: var(--bad-light);
+  color: var(--bad);
+  border-left: 4px solid var(--bad);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: left;
+}
 
 .card {
   max-width: 720px;

@@ -8,8 +8,24 @@
 </head>
 <body>
 
+  <!-- ============= ACCESS CODE GATE ============= -->
+  <section id="gate" class="screen active">
+    <div class="card gate-card">
+      <h1>Access Code Required</h1>
+      <p class="muted">This is the official midterm exam. Enter the access code your mentor gave you to begin.</p>
+
+      <label class="field">
+        <span>Access code</span>
+        <input id="gate-code" type="password" placeholder="enter the code" autocomplete="off" />
+      </label>
+
+      <button id="gate-btn" class="btn primary" disabled>Unlock exam</button>
+      <p id="gate-error" class="gate-error" style="display:none">Wrong code. Ask your mentor.</p>
+    </div>
+  </section>
+
   <!-- ============= WELCOME SCREEN ============= -->
-  <section id="welcome" class="screen active">
+  <section id="welcome" class="screen">
     <div class="card">
       <h1 id="welcome-title">AI/ML Midterm</h1>
       <p id="welcome-subtitle" class="muted"></p>

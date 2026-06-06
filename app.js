@@ -8,6 +8,11 @@ const STORAGE_KEY = "midterm_state_v3";
 const TIMER_KEY = "midterm_timer_end_v3";
 const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzq6x7m0xr1WlpYWsr5EDzAgkhmuctPED1gTwwbDtrzSKK_Kq0djYdwGKvawJDB_IR-/exec";
 
+// Access gate — students must enter this code to begin the real exam.
+// (Deterrent, not real security: anyone reading the source can find this.)
+const ACCESS_CODE = "2026!";
+const ACCESS_KEY  = "midterm_access_v1";
+
 const state = {
   data: null,
   flat: [],       // flat list of all questions in order
@@ -75,6 +80,17 @@ async function boot() {
   el.welcomeTitle.textContent = state.data.title;
   el.welcomeSubtitle.textContent = state.data.subtitle || "";
 
+  // Wire up the access-code gate
+  setupGate();
+
+  // If not already unlocked, stop here — the gate decides what happens next.
+  if (sessionStorage.getItem(ACCESS_KEY) !== "ok") {
+    switchScreen("gate");
+    return;
+  }
+
+  // Already unlocked this session — fall through to the normal welcome / resume flow.
+
   // Restore in-progress exam?
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
@@ -122,6 +138,49 @@ function validateStart() {
   const ok = el.studentName.value.trim().length > 1 && el.studentGroup.value.trim().length > 0;
   el.startBtn.disabled = !ok;
   el.startHint.style.display = ok ? "none" : "block";
+}
+
+/* ============= Access-code gate ============= */
+function setupGate() {
+  const codeInput = document.getElementById("gate-code");
+  const gateBtn   = document.getElementById("gate-btn");
+  const gateErr   = document.getElementById("gate-error");
+  if (!codeInput || !gateBtn) return;
+
+  codeInput.addEventListener("input", () => {
+    gateBtn.disabled = codeInput.value.length === 0;
+    gateErr.style.display = "none";
+  });
+
+  const tryUnlock = () => {
+    if (codeInput.value === ACCESS_CODE) {
+      sessionStorage.setItem(ACCESS_KEY, "ok");
+      // Continue to the normal welcome flow
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (parsed.student && !parsed.finished) {
+            Object.assign(state, parsed);
+            startExam(true);
+            return;
+          }
+        } catch (e) {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      }
+      switchScreen("welcome");
+    } else {
+      gateErr.style.display = "block";
+      codeInput.value = "";
+      codeInput.focus();
+    }
+  };
+
+  gateBtn.addEventListener("click", tryUnlock);
+  codeInput.addEventListener("keydown", e => {
+    if (e.key === "Enter" && !gateBtn.disabled) tryUnlock();
+  });
 }
 
 /* ============= Start exam ============= */
@@ -586,7 +645,7 @@ function retake() {
 
 /* ============= Helpers ============= */
 function switchScreen(name) {
-  ["welcome", "exam", "results"].forEach(n => {
+  ["gate", "welcome", "exam", "results"].forEach(n => {
     document.getElementById(n).classList.toggle("active", n === name);
   });
 }
