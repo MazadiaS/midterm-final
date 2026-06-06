@@ -4,8 +4,11 @@
    autosaves to localStorage, grades on submit.
    ============================================================ */
 
-const STORAGE_KEY = "midterm_state_v3";
-const TIMER_KEY = "midterm_timer_end_v3";
+// IMPORTANT: keys are namespaced "real_" so this site never reads or
+// writes the practice site's localStorage. Both are on the same origin
+// (mazadias.github.io) so they would otherwise share state.
+const STORAGE_KEY = "midterm_real_state_v1";
+const TIMER_KEY = "midterm_real_timer_end_v1";
 const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzq6x7m0xr1WlpYWsr5EDzAgkhmuctPED1gTwwbDtrzSKK_Kq0djYdwGKvawJDB_IR-/exec";
 
 // Access gate — students must enter this code to begin the real exam.
